@@ -48,7 +48,7 @@ function Dropdown({ title, options, selected, menu, onClickMenuItem }) {
       </div>
 
       {isOpen && (
-        <div className="origin-top-right absolute left-0 mt-2 w-32 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className="origin-top-right absolute left-0 mt-2 w-32 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bg-white">
           <div className="py-1">
             {options.map((option) => (
               <button

@@ -6,3 +6,7 @@ export {default as NetworkingIcon} from './networkingIcon';
 export {default as MagnifyIcon} from './magnifyIcon';
 export {default as RibbonIcon} from './ribbonIcon';
 export {default as LocationIcon} from './locationIcon';
+export {default as CogwheelIcon} from './cogwheelIcon;';
+export {default as ChessknightIcon} from './chessknightIcon';
+export {default as ClockIcon} from './clockIcon';
+export {default as DollarsackIcon} from './dollarsackIcon'

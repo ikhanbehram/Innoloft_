@@ -38,7 +38,7 @@ function ProductPage() {
        <div className="my-10">
         <VideoSection />
        </div>
-       <div>
+       <div className="mb-10">
         <OfferDetailsSection />
        </div>
       </div>
