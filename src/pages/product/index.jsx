@@ -6,8 +6,11 @@ import MapSection from "./mapSection";
 import OfferDetailsSection from "./offerDetailsSection";
 import ProfileSection from "./profileSection";
 import VideoSection from "./videoSection";
+import { useSelector } from "react-redux";
 
 function ProductPage() {
+  const product = useSelector((state) => state.product);
+
   return (
     <div className="flex mt-2">
       <div className="flex-[25%]">
@@ -16,8 +19,7 @@ function ProductPage() {
       <div className="flex-[75%]">
         <div className="flex justify-between py-3">
           <Breadcrumb />
-          <Button title="Edit" type="main" size="xs" onClick={()=>{}}/>
-         
+          <Button title="Edit" type="main" size="xs" onClick={() => {}} />
         </div>
         <div className="flex justify-start items-stretch">
           <div className="w-[66%] h-full">
@@ -35,12 +37,12 @@ function ProductPage() {
             <MapSection />
           </div>
         </div>
-       <div className="my-10">
-        <VideoSection />
-       </div>
-       <div className="mb-10">
-        <OfferDetailsSection />
-       </div>
+        <div className="my-10">
+          <VideoSection />
+        </div>
+        <div className="mb-10">
+          <OfferDetailsSection />
+        </div>
       </div>
     </div>
   );
