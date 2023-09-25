@@ -11,8 +11,7 @@ function Card({ imageSrc, title, description, badge }) {
           <h3 className="font-medium text-gray-600">{title}</h3>
         </div>
         <div>
-          <article className="text-sm font-medium text-gray-700">
-            {description}
+          <article className="text-xs font-medium text-gray-700" dangerouslySetInnerHTML={{ __html: description }}>
           </article>
         </div>
       </div>

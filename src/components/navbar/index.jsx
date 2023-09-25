@@ -5,7 +5,7 @@ import LocaleDropdown from "../shared/dropdown/localeDropdown";
 import ProfileMenu from "../shared/dropdown/profileMenu";
 import { BellIcon, CommentIcon } from "../../assets/svgComponents";
 
-function NavbarComponent({}) {
+function NavbarComponent({profile}) {
   return (
     <Navbar>
       <div className="flex items-center w-full">
@@ -24,7 +24,7 @@ function NavbarComponent({}) {
               <CommentIcon />
               <LocaleDropdown />
               <BellIcon />
-              <ProfileMenu />
+              <ProfileMenu profile={profile}/>
             </div>
           </div>
         </div>

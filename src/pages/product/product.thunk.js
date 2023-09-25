@@ -1,5 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const getProduct = createAsyncThunk("GET_PRODUCT", async (id)=>{
-    const product = await fetch();
+const BASE_URL = "https://api-test.innoloft.com";
+
+export const getProduct = createAsyncThunk("GET_PRODUCT", async (productId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/product/${productId}/`);
+    const responseBody = await res.json();
+    return responseBody;
+  } catch (e) {
+    throw e;
+  }
 });

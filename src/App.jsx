@@ -1,13 +1,15 @@
 // App.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NavbarComponent from "./components/navbar/index";
 import InnoloftContainer from "./layouts/InnoloftContainer";
 import MainPage from "./pages/main";
 import ProductPage from "./pages/product";
 import ProductEditPage from "./pages/product-edit";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { user } = useSelector((state) => state.product);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -24,7 +26,7 @@ function App() {
   ]);
   return (
     <>
-      <NavbarComponent />
+      <NavbarComponent profile={user}/>
       <InnoloftContainer>
         <RouterProvider router={router} />
       </InnoloftContainer>

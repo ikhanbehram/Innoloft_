@@ -15,13 +15,13 @@ function SectionButton({ title, icon }) {
   );
 }
 
-function ProfileSection() {
+function ProfileSection({profile}) {
   return (
     <div className="flex flex-col items-start">
       <ProfileBlock
-        imageSrc="https://placehold.co/50x50"
-        name="Sven Pietsch"
-        companyName="Innoloft Gmbh"
+        imageSrc={profile?.profilePicture}
+        name={profile?.name}
+        companyName={profile?.position}
       />
       <div className="flex flex-col gap-4 pt-4 pl-1">
         <SectionButton title="Home" icon={<HomeIcon />} />

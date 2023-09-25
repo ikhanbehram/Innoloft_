@@ -1,8 +1,11 @@
 import Dropdown from "..";
 
-function ProfileMenu() {
+function ProfileMenu({ profile }) {
   const profileImg = (
-    <img src="https://placehold.co/50x50" className=" rounded-full h-7" />
+    <img
+      src={profile.profilePicture || "https://placehold.co/50x50"}
+      className=" rounded-full h-7"
+    />
   );
   const onClickMenuItem = (item) => {};
   return (
