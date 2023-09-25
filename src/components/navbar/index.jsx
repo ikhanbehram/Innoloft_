@@ -4,8 +4,10 @@ import NavbarInput from "../shared/input/navbarInput";
 import LocaleDropdown from "../shared/dropdown/localeDropdown";
 import ProfileMenu from "../shared/dropdown/profileMenu";
 import { BellIcon, CommentIcon } from "../../assets/svgComponents";
+import { useForm } from "react-hook-form";
 
 function NavbarComponent({profile}) {
+  const {control} = useForm({});
   return (
     <Navbar>
       <div className="flex items-center w-full">
@@ -17,7 +19,9 @@ function NavbarComponent({profile}) {
             <div className="w-[50%]">
               <NavbarInput
                 placeholder="Enter interests,keyword,company name, etc,"
-                onChange={() => {}}
+                name="navbarInput"
+                control={control}
+                onChange={(e)=>{console.log(e.target.value)}}
               />
             </div>
             <div className="flex items-center gap-3">

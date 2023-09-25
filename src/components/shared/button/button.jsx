@@ -1,5 +1,5 @@
 function Button({ title, size, type, onClick }) {
-    let buttonClasses = "text-sm text-white rounded-md";
+    let buttonClasses = "text-sm text-white rounded-md font-medium";
   
     switch (size) {
       case "lg":
@@ -12,7 +12,7 @@ function Button({ title, size, type, onClick }) {
         buttonClasses += " px-8 py-2";
         break;
       case "xs":
-        buttonClasses += " px-6 py-1";
+        buttonClasses += " px-5 py-1";
         break;
       default:
         buttonClasses += " px-10 py-3";
@@ -22,7 +22,7 @@ function Button({ title, size, type, onClick }) {
     if (type === "main") {
       buttonClasses += " bg-slate-800";
     } else if (type === "secondary") {
-      buttonClasses += " bg-white shadow-md text-gray-600";
+      buttonClasses += " bg-white shadow-md text-black";
     }
   
     return <button className={buttonClasses} onClick={onClick}>{title}</button>;

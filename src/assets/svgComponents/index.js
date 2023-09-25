@@ -10,3 +10,4 @@ export {default as CogwheelIcon} from './cogwheelIcon';
 export {default as ChessknightIcon} from './chessknightIcon';
 export {default as ClockIcon} from './clockIcon';
 export {default as DollarsackIcon} from './dollarsackIcon'
+export {default as TrashIcon} from './trashIcon'

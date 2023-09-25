@@ -6,7 +6,6 @@ function MapSection({ profile, company }) {
   return (
     <div className="flex flex-col p-3 gap-5 border-2 items-start">
       <p>Offered By</p>
-      {console.log(company)}
       <img
         src={company.logo || "https://img.innoloft.com/logo.svg"}
         className="h-8"
@@ -33,6 +32,7 @@ function MapSection({ profile, company }) {
               lat: +company.address.latitude,
               lng: +company.address.longitude,
             }}
+            zoom={14}
           />
         )}
        

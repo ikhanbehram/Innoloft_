@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 function ChessknightIcon(){
 
     return (
@@ -5,4 +7,4 @@ function ChessknightIcon(){
     );
 }
 
-export default ChessknightIcon;
+export default memo(ChessknightIcon);

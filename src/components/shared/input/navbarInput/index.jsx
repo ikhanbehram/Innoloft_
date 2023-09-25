@@ -1,11 +1,18 @@
 import { MagnifyIcon } from "../../../../assets/svgComponents";
 import InputField from "../inputField";
 
-function NavbarInput({ placeholder, onChange }) {
+function NavbarInput({ placeholder, name, onChange, control }) {
   return (
     <div className="flex items-center">
-      <InputField placeholder={placeholder} onChange={onChange}/>
+      <InputField
+        name={name}
+        placeholder={placeholder}
+        control={control}
+        onChange={onChange}
+      />
+      <div className="mt-2">
       <MagnifyIcon />
+      </div>
     </div>
   );
 }

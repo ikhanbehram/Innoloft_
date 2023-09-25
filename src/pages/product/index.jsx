@@ -9,9 +9,12 @@ import ProfileSection from "./profileSection";
 import VideoSection from "./videoSection";
 import { useSelector, useDispatch } from "react-redux";
 import { getProduct } from "./product.thunk";
+import { useNavigate } from "react-router-dom";
+
+const TEST_PRODUCT_ID = 6781;
 
 function ProductPage() {
-  const TEST_PRODUCT_ID = 6781;
+    const navigate = useNavigate();
   const { product, video, user, offerDetails, company, error, loading } =
     useSelector((state) => state.product);
   const dispatch = useDispatch();
@@ -30,7 +33,9 @@ function ProductPage() {
       <div className="flex-[75%]">
         <div className="flex justify-between py-3">
           <Breadcrumb />
-          <Button title="Edit" type="main" size="xs" onClick={() => {}} />
+          <Button title="Edit" type="main" size="xs" onClick={() => {
+            navigate(`edit/${TEST_PRODUCT_ID}`)
+          }} />
         </div>
         <div className="flex justify-start items-stretch">
           <div className="w-[66%] h-full">

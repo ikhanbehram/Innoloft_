@@ -5,8 +5,8 @@ import NavbarComponent from "./components/navbar/index";
 import InnoloftContainer from "./layouts/InnoloftContainer";
 import MainPage from "./pages/main";
 import ProductPage from "./pages/product";
-import ProductEditPage from "./pages/product-edit";
 import { useSelector } from "react-redux";
+import ProductEditPage from "./pages/product/product.edit";
 
 function App() {
   const { user } = useSelector((state) => state.product);

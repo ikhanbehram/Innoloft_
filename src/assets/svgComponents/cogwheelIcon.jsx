@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 function CogwheelIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="gray">
@@ -6,4 +8,4 @@ function CogwheelIcon() {
   );
 }
 
-export default CogwheelIcon;
+export default memo(CogwheelIcon);
