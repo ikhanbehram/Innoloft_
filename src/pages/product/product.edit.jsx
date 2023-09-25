@@ -14,6 +14,7 @@ import MapSection from "./mapSection";
 import OfferDetailsSection from "./offerDetailsSection";
 import ProfileSection from "./profileSection";
 import VideoSection from "./videoSection";
+import EditorField from "../../components/shared/input/quillEditor";
 
 const TEST_PRODUCT_ID = 6781;
 
@@ -23,7 +24,7 @@ function ProductEditPage() {
   const { product, video, user, offerDetails, company, error, loading } =
     useSelector((state) => state.product);
 
-  const { control, formState, handleSubmit } = useForm({
+  const { control, formState, handleSubmit, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -32,8 +33,14 @@ function ProductEditPage() {
   };
 
   useEffect(() => {
-    dispatch(getProduct(TEST_PRODUCT_ID));
+        dispatch(getProduct(TEST_PRODUCT_ID));
   }, []);
+
+  useEffect(()=>{
+    if (product) {
+        reset({productTitle: product.name})
+    }
+  },[product , reset])
 
   return loading ? (
     <div>Loading ...</div>
@@ -81,7 +88,7 @@ function ProductEditPage() {
                   req
                 />
               }
-              description={product.description}
+              description={<EditorField name="productDescription" control={control}/>}
             />
           </div>
           <div className="flex-1 h-full">

@@ -9,7 +9,6 @@ function InputField({
   name,
   req,
   errors,
-  value,
   ...rest
 }) {
   return (
@@ -21,7 +20,7 @@ function InputField({
       <Controller
         control={control}
         name={name}
-        render={({ field: { onChange, onBlur } }) => (
+        render={({ field: { onChange, onBlur, value } }) => (
           <input
             placeholder={placeholder}
             onChange={onChange}

@@ -38,16 +38,30 @@ function Card({
           <h3 className="font-medium text-gray-600">{title}</h3>
         </div>
         <div>
-          <article
-            className="text-xs font-medium text-gray-700"
-            dangerouslySetInnerHTML={{ __html: description }}
-          ></article>
+          {!cardForm ? (
+            <article
+              className="text-xs font-medium text-gray-700"
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></article>
+          ) : (
+            description
+          )}
         </div>
       </div>
       {cardForm && (
         <div className="flex gap-2 p-3 self-end">
-          <Button title="cancel" size="xs" type="secondary" onClick={cardFormCancel} />
-          <Button title="submit" size="xs" type="main"  onClick={cardFormSubmit}/>
+          <Button
+            title="cancel"
+            size="xs"
+            type="secondary"
+            onClick={cardFormCancel}
+          />
+          <Button
+            title="submit"
+            size="xs"
+            type="main"
+            onClick={cardFormSubmit}
+          />
         </div>
       )}
     </div>
