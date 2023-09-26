@@ -10,6 +10,7 @@ function Card({
   cardForm,
   cardFormSubmit,
   cardFormCancel,
+  cardFormSubmitDisabled
 }) {
   return (
     <div className="flex flex-col items-start border-2 rounded-tl-md relative">
@@ -24,7 +25,7 @@ function Card({
       {cardTopButton && (
         <div className="absolute top-0 right-0 h-8 flex">
           <button
-            className="bg-[#272e71] rounded-tl-md rounded-br-md px-3 flex justify-center items-center"
+            className="bg-[#272e71] rounded-bl-md px-3 flex justify-center items-center"
             onClick={onClickCardTopButton}
           >
             {cardTopButton}
@@ -61,6 +62,7 @@ function Card({
             size="xs"
             type="main"
             onClick={cardFormSubmit}
+            disabled={cardFormSubmitDisabled}
           />
         </div>
       )}

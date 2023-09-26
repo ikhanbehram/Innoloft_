@@ -6,7 +6,7 @@ import InnoloftContainer from "./layouts/InnoloftContainer";
 import MainPage from "./pages/main";
 import ProductPage from "./pages/product";
 import { useSelector } from "react-redux";
-import ProductEditPage from "./pages/product/product.edit";
+import ProductEditPage from "./pages/product/productEdit/product.edit";
 
 function App() {
   const { user } = useSelector((state) => state.product);
