@@ -1,28 +1,29 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getProduct } from "./product.thunk";
-import { useNavigate } from "react-router-dom";
-import { RibbonIcon } from "../../assets/svgComponents";
-import Breadcrumb from "../../components/breadcrumb";
-import Button from "../../components/shared/button/button";
-import Card from "../../components/shared/card";
-import MapSection from "./mapSection";
-import OfferDetailsSection from "./offerDetailsSection";
-import ProfileSection from "./profileSection";
-import VideoSection from "./videoSection";
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProduct } from './product.thunk';
+import { useNavigate } from 'react-router-dom';
+import { RibbonIcon } from '../../assets/svgComponents';
+import Breadcrumb from '../../components/breadcrumb';
+import Button from '../../components/shared/button/button';
+import Card from '../../components/shared/card';
+import MapSection from './mapSection';
+import OfferDetailsSection from './offerDetailsSection';
+import ProfileSection from './profileSection';
+import VideoSection from './videoSection';
 
 const TEST_PRODUCT_ID = 6781;
 
 function ProductPage() {
   const navigate = useNavigate();
-  const { product, video, user, offerDetails, company, loading } =
-    useSelector((state) => state.product);
+  const { product, video, user, offerDetails, company, loading } = useSelector(
+    (state) => state.product,
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProduct(TEST_PRODUCT_ID));
   }, []);
-  
+
   return loading ? (
     <div className="h-[100vh] w-full flex justify-center items-center">
       <div className="spinner"></div>

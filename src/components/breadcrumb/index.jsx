@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
-import { HomeIcon } from "../../assets/svgComponents";
+import { Link, useLocation } from 'react-router-dom';
+import { HomeIcon } from '../../assets/svgComponents';
 
 function Breadcrumb() {
   const { pathname } = useLocation();
@@ -9,14 +9,10 @@ function Breadcrumb() {
         <HomeIcon />
       </Link>
       {pathname
-        .split("/")
+        .split('/')
         .filter(Boolean)
         .map((path) => {
-          return (
-            <div className="text-sm text-gray-500 font-mono font-bold ">
-              / {path}
-            </div>
-          );
+          return <div className="text-sm text-gray-500 font-mono font-bold ">/ {path}</div>;
         })}
     </div>
   );

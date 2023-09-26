@@ -1,38 +1,31 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../product.constants";
-import { toast } from "react-hot-toast";
-import { editProduct, getProduct } from "../product.thunk";
-import { resetMessageState } from "../product.slice";
-import { RibbonIcon, TrashIcon } from "../../../assets/svgComponents";
-import Breadcrumb from "../../../components/breadcrumb";
-import Button from "../../../components/shared/button/button";
-import Card from "../../../components/shared/card";
-import InputField from "../../../components/shared/input/inputField";
-import MapSection from "../mapSection";
-import ProfileSection from "../profileSection";
-import EditorField from "../../../components/shared/input/editorField";
-import SelectCreateable from "../../../components/shared/creatableSelect";
-import { mapSelectFieldData } from "../../../utils/helpers";
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from '../product.constants';
+import { toast } from 'react-hot-toast';
+import { editProduct, getProduct } from '../product.thunk';
+import { resetMessageState } from '../product.slice';
+import { RibbonIcon, TrashIcon } from '../../../assets/svgComponents';
+import Breadcrumb from '../../../components/breadcrumb';
+import Button from '../../../components/shared/button/button';
+import Card from '../../../components/shared/card';
+import InputField from '../../../components/shared/input/inputField';
+import MapSection from '../mapSection';
+import ProfileSection from '../profileSection';
+import EditorField from '../../../components/shared/input/editorField';
+import SelectCreateable from '../../../components/shared/creatableSelect';
+import { mapSelectFieldData } from '../../../utils/helpers';
 
 const TEST_PRODUCT_ID = 6781;
 
 function ProductEditPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {
-    product,
-    video,
-    user,
-    offerDetails,
-    company,
-    error,
-    editSuccess,
-    loading,
-  } = useSelector((state) => state.product);
+  const { product, video, user, offerDetails, company, error, editSuccess, loading } = useSelector(
+    (state) => state.product,
+  );
 
   const { control, formState, handleSubmit, reset } = useForm({
     resolver: yupResolver(schema),
@@ -50,14 +43,14 @@ function ProductEditPage() {
           video: video,
           costs: mapSelectFieldData([offerDetails?.costs]),
           categories: mapSelectFieldData(
-            offerDetails?.categories?.map((category) => category.name)
+            offerDetails?.categories?.map((category) => category.name),
           ),
           businessModels: mapSelectFieldData(
-            offerDetails?.businessModels?.map((model) => model.name)
+            offerDetails?.businessModels?.map((model) => model.name),
           ),
           trl: mapSelectFieldData([offerDetails?.trl?.name]),
         },
-        { keepTouched: false }
+        { keepTouched: false },
       );
     }
   }, [product]);
@@ -69,7 +62,7 @@ function ProductEditPage() {
   useEffect(() => {
     if (editSuccess) {
       toast.success(editSuccess);
-      navigate("/");
+      navigate('/');
     }
     if (error) {
       toast.error(error);
@@ -108,13 +101,13 @@ function ProductEditPage() {
               }}
               cardTopButton={<TrashIcon color="white" />}
               onClickCardTopButton={() => {
-                console.log("DELETE");
+                console.log('DELETE');
               }}
               cardForm
               cardFormSubmit={handleSubmit(onSubmitEdit)}
               cardFormSubmitDisabled={!formState.isDirty}
               cardFormCancel={() => {
-                navigate("/product");
+                navigate('/product');
               }}
               title={
                 <InputField

@@ -1,5 +1,5 @@
-import Dropdown from "..";
-import { DEFAULT_LOCALE, LOCALE_OPTIONS } from "./localeDropdown.constants";
+import Dropdown from '..';
+import { DEFAULT_LOCALE, LOCALE_OPTIONS } from './localeDropdown.constants';
 
 function LocaleDropdown() {
   return (

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 function Dropdown({ title, options, selected, menu, onClickMenuItem }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (selected) {
       setSelectedOption(selected);
     }
-  },[])
+  }, []);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -32,7 +32,11 @@ function Dropdown({ title, options, selected, menu, onClickMenuItem }) {
         >
           <div>{selectedOption || title}</div>
           <svg
-            className={`-mr-1 ml-1 h-5 w-5 transform ${isOpen ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'}`}
+            className={`-mr-1 ml-1 h-5 w-5 transform ${
+              isOpen
+                ? 'rotate-180 transition-transform duration-300'
+                : 'rotate-0 transition-transform duration-300'
+            }`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -55,7 +59,7 @@ function Dropdown({ title, options, selected, menu, onClickMenuItem }) {
                 key={option}
                 onClick={() => selectOption(option)}
                 className={`block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${
-                  option === selectedOption ? "bg-gray-100" : ""
+                  option === selectedOption ? 'bg-gray-100' : ''
                 }`}
               >
                 {option}

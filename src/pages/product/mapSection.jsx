@@ -1,15 +1,12 @@
-import { LocationIcon } from "../../assets/svgComponents";
-import MapComponent from "../../components/shared/map";
-import ProfileBlock from "../../components/shared/profileBlock";
+import { LocationIcon } from '../../assets/svgComponents';
+import MapComponent from '../../components/shared/map';
+import ProfileBlock from '../../components/shared/profileBlock';
 
 function MapSection({ profile, company }) {
   return (
     <div className="flex flex-col p-3 gap-5 border-2 items-start">
       <p>Offered By</p>
-      <img
-        src={company.logo || "https://img.innoloft.com/logo.svg"}
-        className="h-8"
-      />
+      <img src={company.logo || 'https://img.innoloft.com/logo.svg'} className="h-8" />
       <ProfileBlock
         imageSrc={profile?.profilePicture}
         name={profile?.name}
@@ -35,7 +32,6 @@ function MapSection({ profile, company }) {
             zoom={14}
           />
         )}
-       
       </map>
     </div>
   );

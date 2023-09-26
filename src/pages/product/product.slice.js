@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { editProduct, getProduct } from "./product.thunk";
+import { createSlice } from '@reduxjs/toolkit';
+import { editProduct, getProduct } from './product.thunk';
 
 export const productSlice = createSlice({
-  name: "product",
+  name: 'product',
   initialState: {
     loading: false,
     user: {
@@ -26,7 +26,7 @@ export const productSlice = createSlice({
     categories: null,
     video: null,
     editSuccess: null,
-    error: null
+    error: null,
   },
   reducers: {
     resetMessageState: (state) => {
@@ -40,7 +40,7 @@ export const productSlice = createSlice({
     },
     [getProduct.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      state.user.name = payload.user.firstName + " " + payload.user.lastName;
+      state.user.name = payload.user.firstName + ' ' + payload.user.lastName;
       state.user.position = payload.user.position;
       state.user.email = payload.user.email;
       state.user.profilePicture = payload.user.profilePicture;
@@ -67,11 +67,11 @@ export const productSlice = createSlice({
       state.loading = true;
     },
     [editProduct.fulfilled]: (state) => {
-      state.loading = false; 
-      state.editSuccess = "PRODUCT EDITED";
+      state.loading = false;
+      state.editSuccess = 'PRODUCT EDITED';
     },
     [editProduct.rejected]: (state) => {
-      state.error = "FAILED TO EDIT PRODUCT";
+      state.error = 'FAILED TO EDIT PRODUCT';
       state.loading = false;
     },
   },

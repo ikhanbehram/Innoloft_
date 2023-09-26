@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 function MainPage() {
   return (
     <div className="w-full h-[100vh] flex justify-center items-center">

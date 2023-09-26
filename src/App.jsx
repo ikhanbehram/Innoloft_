@@ -1,14 +1,14 @@
 // App.jsx
-import React, { useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
-import NavbarComponent from "./components/navbar/index";
-import InnoloftContainer from "./layouts/InnoloftContainer";
-import MainPage from "./pages/main";
-import ProductPage from "./pages/product";
-import ProductEditPage from "./pages/product/productEdit/product.edit";
-import { getConfig } from "./utils/helpers";
+import React, { useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import NavbarComponent from './components/navbar/index';
+import InnoloftContainer from './layouts/InnoloftContainer';
+import MainPage from './pages/main';
+import ProductPage from './pages/product';
+import ProductEditPage from './pages/product/productEdit/product.edit';
+import { getConfig } from './utils/helpers';
 
 function App() {
   const { user } = useSelector((state) => state.product);
@@ -29,15 +29,15 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: <MainPage />,
     },
     {
-      path: "/product",
+      path: '/product',
       element: <ProductPage />,
     },
     {
-      path: "product/edit/:editId",
+      path: 'product/edit/:editId',
       element: <ProductEditPage />,
     },
   ]);

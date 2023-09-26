@@ -1,5 +1,5 @@
-import { Controller } from "react-hook-form";
-import ReactQuill from "react-quill";
+import { Controller } from 'react-hook-form';
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const EditorField = ({ name, control, defaultValue }) => {
@@ -10,11 +10,7 @@ const EditorField = ({ name, control, defaultValue }) => {
         control={control}
         defaultValue={defaultValue}
         render={({ field }) => (
-          <ReactQuill
-            theme="snow"
-            value={field.value}
-            onChange={field.onChange}
-          />
+          <ReactQuill theme="snow" value={field.value} onChange={field.onChange} />
         )}
       />
     </div>

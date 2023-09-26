@@ -1,9 +1,9 @@
-import Dropdown from "..";
+import Dropdown from '..';
 
 function ProfileMenu({ profile }) {
   const profileImg = (
     <img
-      src={profile.profilePicture || "https://placehold.co/50x50"}
+      src={profile.profilePicture || 'https://placehold.co/50x50'}
       className=" rounded-full h-7"
     />
   );
@@ -13,7 +13,7 @@ function ProfileMenu({ profile }) {
       <Dropdown
         menu={true}
         title={profileImg}
-        options={["Profile", "Logout"]}
+        options={['Profile', 'Logout']}
         onClickMenuItem={onClickMenuItem}
       />
     </div>

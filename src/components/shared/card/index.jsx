@@ -1,4 +1,4 @@
-import Button from "../button/button";
+import Button from '../button/button';
 
 function Card({
   imageSrc,
@@ -10,7 +10,7 @@ function Card({
   cardForm,
   cardFormSubmit,
   cardFormCancel,
-  cardFormSubmitDisabled
+  cardFormSubmitDisabled,
 }) {
   return (
     <div className="flex flex-col items-start border-2 rounded-tl-md relative">
@@ -18,9 +18,7 @@ function Card({
         <div className="bg-[#272e71] rounded-tl-md rounded-br-md px-3 flex justify-center items-center">
           {badge.icon}
         </div>
-        <div className="bg-white px-6 rounded-br-md text-gray-600 font-medium">
-          {badge.title}
-        </div>
+        <div className="bg-white px-6 rounded-br-md text-gray-600 font-medium">{badge.title}</div>
       </div>
       {cardTopButton && (
         <div className="absolute top-0 right-0 h-8 flex">
@@ -51,12 +49,7 @@ function Card({
       </div>
       {cardForm && (
         <div className="flex gap-2 p-3 self-end">
-          <Button
-            title="cancel"
-            size="xs"
-            type="secondary"
-            onClick={cardFormCancel}
-          />
+          <Button title="cancel" size="xs" type="secondary" onClick={cardFormCancel} />
           <Button
             title="submit"
             size="xs"

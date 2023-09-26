@@ -3,8 +3,8 @@ import {
   ClockIcon,
   CogwheelIcon,
   DollarsackIcon,
-} from "../../assets/svgComponents";
-import Tag from "../../components/shared/tag";
+} from '../../assets/svgComponents';
+import Tag from '../../components/shared/tag';
 
 function DetailItem({ title, icon, tags }) {
   return (
@@ -44,18 +44,10 @@ function OfferDetailsSection({ offerDetails }) {
           />
         </div>
         <div className="flex flex-[50%] px-2 py-3">
-          <DetailItem
-            title="Costs"
-            tags={[offerDetails?.costs]}
-            icon={<DollarsackIcon />}
-          />
+          <DetailItem title="Costs" tags={[offerDetails?.costs]} icon={<DollarsackIcon />} />
         </div>
         <div className="flex flex-[50%] px-2 py-3">
-          <DetailItem
-            title="TRL"
-            tags={[offerDetails?.trl?.name]}
-            icon={<ClockIcon />}
-          />
+          <DetailItem title="TRL" tags={[offerDetails?.trl?.name]} icon={<ClockIcon />} />
         </div>
       </div>
     </div>
