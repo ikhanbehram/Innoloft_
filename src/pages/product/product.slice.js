@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProduct } from "./product.thunk";
+import { editProduct, getProduct } from "./product.thunk";
 
 export const productSlice = createSlice({
   name: "product",
@@ -21,12 +21,19 @@ export const productSlice = createSlice({
     company: {
       address: null,
       logo: null,
-      name: null
+      name: null,
     },
     categories: null,
     video: null,
+    editSuccess: null,
+    error: null
   },
-  reducers: {},
+  reducers: {
+    resetMessageState: (state) => {
+      state.error = null;
+      state.editSuccess = null;
+    },
+  },
   extraReducers: {
     [getProduct.pending]: (state) => {
       state.loading = true;
@@ -56,9 +63,20 @@ export const productSlice = createSlice({
       state.error = error.message;
       state.loading = false;
     },
+    [editProduct.pending]: (state) => {
+      state.loading = true;
+    },
+    [editProduct.fulfilled]: (state) => {
+      state.loading = false; 
+      state.editSuccess = "PRODUCT EDITED";
+    },
+    [editProduct.rejected]: (state) => {
+      state.error = "FAILED TO EDIT PRODUCT";
+      state.loading = false;
+    },
   },
 });
 
-export const {} = productSlice.actions;
+export const { resetMessageState } = productSlice.actions;
 
 export default productSlice.reducer;

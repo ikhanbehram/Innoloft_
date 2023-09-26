@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../product.constants";
-import { getProduct } from "../product.thunk";
+import { toast } from "react-hot-toast";
+import { editProduct, getProduct } from "../product.thunk";
+import { resetMessageState } from "../product.slice";
 import { RibbonIcon, TrashIcon } from "../../../assets/svgComponents";
 import Breadcrumb from "../../../components/breadcrumb";
 import Button from "../../../components/shared/button/button";
@@ -21,40 +23,67 @@ const TEST_PRODUCT_ID = 6781;
 function ProductEditPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { product, video, user, offerDetails, company, error, loading } =
-    useSelector((state) => state.product);
+  const {
+    product,
+    video,
+    user,
+    offerDetails,
+    company,
+    error,
+    editSuccess,
+    loading,
+  } = useSelector((state) => state.product);
 
   const { control, formState, handleSubmit, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmitEdit = (form) => {
-    console.log(form);
+    dispatch(editProduct({ id: TEST_PRODUCT_ID, ...form }));
   };
+  useEffect(() => {
+    if (product) {
+      reset(
+        {
+          productTitle: product.name,
+          productDescription: product.description,
+          video: video,
+          costs: mapSelectFieldData([offerDetails?.costs]),
+          categories: mapSelectFieldData(
+            offerDetails?.categories?.map((category) => category.name)
+          ),
+          businessModels: mapSelectFieldData(
+            offerDetails?.businessModels?.map((model) => model.name)
+          ),
+          trl: mapSelectFieldData([offerDetails?.trl?.name]),
+        },
+        { keepTouched: false }
+      );
+    }
+  }, [product]);
 
   useEffect(() => {
     dispatch(getProduct(TEST_PRODUCT_ID));
   }, []);
 
   useEffect(() => {
-    if (product) {
-      reset({
-        productTitle: product.name,
-        productDescription: product.description,
-        video: video,
-        costs: mapSelectFieldData([offerDetails?.costs]),
-        categories: mapSelectFieldData(offerDetails?.categories?.map((category) => category.name)),
-        businessModels: mapSelectFieldData(offerDetails?.businessModels?.map((model) => model.name)),
-        trl: mapSelectFieldData([offerDetails?.trl?.name])
-      });
+    if (editSuccess) {
+      toast.success(editSuccess);
+      navigate("/");
     }
-  }, [product, reset]);
+    if (error) {
+      toast.error(error);
+    }
+    dispatch(resetMessageState());
+  }, [error, editSuccess, dispatch]);
 
   return loading ? (
-    <div>Loading ...</div>
+    <div className="h-[100vh] w-full flex justify-center items-center">
+      <div className="spinner"></div>
+    </div>
   ) : (
     <div className="flex mt-2">
-      <div className="flex-[25%]">
+      <div className="flex-[25%] hidden md:block">
         <ProfileSection profile={user} />
       </div>
       <div className="flex-[75%]">
@@ -69,8 +98,8 @@ function ProductEditPage() {
             }}
           />
         </div>
-        <div className="flex justify-start items-stretch">
-          <div className="w-[66%] h-full">
+        <div className=" flex justify-start items-stretch flex-col md:flex-row">
+          <div className="w-full md:w-[66%] h-full">
             <Card
               imageSrc={product.picture}
               badge={{

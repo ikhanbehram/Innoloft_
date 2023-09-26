@@ -1,5 +1,7 @@
+import { MAIN, SECONDARY } from "../../../constants";
+
 function Button({ title, size, type, disabled, onClick }) {
-  let buttonClasses = "text-sm text-white rounded-md font-medium";
+  let buttonClasses = "text-sm rounded-md font-medium";
 
   switch (size) {
     case "lg":
@@ -19,10 +21,10 @@ function Button({ title, size, type, disabled, onClick }) {
       break;
   }
 
-  if (type === "main") {
-    buttonClasses += " bg-slate-800";
-  } else if (type === "secondary") {
-    buttonClasses += " bg-white shadow-md text-gray-600";
+  if (type === MAIN) {
+    buttonClasses += " bg-slate-800 text-white";
+  } else if (type === SECONDARY) {
+    buttonClasses += " bg-white shadow-md text-black";
   }
 
   return (

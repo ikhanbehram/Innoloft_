@@ -13,9 +13,9 @@ function NavbarComponent({profile}) {
       <div className="flex items-center w-full">
         <div className="flex items-center justify-between w-full">
           <div className="flex-[25%]">
-            <img src="https://img.innoloft.com/logo.svg" className="h-6" />
+            <img src={window?.innoloftConfig?.logo || 'https://img.innoloft.com/logo.svg'} className="h-6" />
           </div>
-          <div className="flex justify-between items-center flex-[75%]">
+          <div className="justify-between items-center flex-[75%] hidden sm:flex">
             <div className="w-[50%]">
               <NavbarInput
                 placeholder="Enter interests,keyword,company name, etc,"
